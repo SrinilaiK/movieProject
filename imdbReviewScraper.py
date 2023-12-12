@@ -5,7 +5,7 @@ from imdb import IMDb
 # Scrapes Reviews for one movie
 
 def main():
-    path = '/mnt/c/Users/Kevin/Desktop/College/!JuniorYear/MovieProject/output1Review.txt'
+    path = open("output.txt", 'w', encoding='utf-8')
     ia = imdb.Cinemagoer()
 
     # get a movie
@@ -18,7 +18,7 @@ def main():
 
     reviews = ia1.get_movie_reviews(id)['data']['reviews']
         
-    with open(path, 'w', encoding='utf-8') as f:
+    with path as f:
         # Write the content of each review to the file, limited to the first 100 reviews
         for review in reviews[:100]:
             f.write(review['content'] + "\n")
