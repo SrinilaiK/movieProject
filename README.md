@@ -9,7 +9,7 @@ Created Script to Get latest movie reviews of movies in theatres (30-100 movies)
 Next Steps:
  - Figure out how to store the data in dataset, interact with dataset.
  - Cloud Server? 
- - Dataset should Latest Movie Reviews
+ - Dataset should hold Latest Movie Reviews
  - Determine Proper Structure for Dataset
  - Choose a model for sentiment analysis, see what the model requires, clean data based on that (Special Characters, review length, etc)  
  - Maybe fine tune model specifically for movie reviews if not already one existing
