@@ -4,9 +4,13 @@ Dependencies to install:
  - pip install cinemagoer
  - pip install mysql-connector-python
 
-Initial version: Webscraper used to take in input from a user and the script will return the general sentiment of the movie selected.
-Created Script to Get latest movie reviews of movies in theatres (30-100 movies) (should refresh script every couple months)
-Model Chosen : distillbert-base-multilingual-cased-sentiments-student
+Everything accomplished so far: 
+- Webscraper used to take in input from a user and the script will return the reviews of the movie selected.  
+
+- Created Script to Get latest movie reviews of movies in theatres (30-100 movies) (should refresh script every couple months)  
+
+- Model Chosen : distillbert-base-multilingual-cased-sentiments-student  
+
 Next Steps:
 
 Phase 1
