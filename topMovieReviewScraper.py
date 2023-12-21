@@ -43,6 +43,7 @@ def main():
     #     csvwriter.writerow(['Movie Title', 'Movie ID', 'Review Content'])
 
     all_reviews = []
+    movie_count = 0
     for title in titles:
         try:
             search_results =  ia.search_movie(title)
@@ -58,26 +59,34 @@ def main():
                 continue  # Skip to the next movie
 
             reviews = reviews_data['data']['reviews']
+            if len(reviews) < 10:
+                continue
+
             reviews = reviews[:100] if len(reviews) > 100 else reviews
             #reviews = review_delimiter.join(review['content'].replace('\n', ' ') for review in reviews)
             #csvwriter.writerow([title, id, reviews])
-
 
             # Add the movie and its reviews to the list
             all_reviews.append({
             'title': title,
             'movie_id': id,
+            'review amount': len(reviews),
             'reviews': [{'content': review['content']} for review in reviews]
             })
+            movie_count += 1 # Increment the movie count
 
         except Exception as e:
             # If an error occurs, print it and continue with the next movie
             print(f"An error occurred while processing {title}: {e}")
             continue
-
+        
+    final_json = {
+        'total_movies': movie_count,
+        'movies': all_reviews
+    }
     # Save the data to a JSON file
     with open('latest_movies_reviews.json', 'w', encoding='utf-8') as jsonfile:
-        json.dump(all_reviews, jsonfile, ensure_ascii=False, indent=4)
+        json.dump(final_json, jsonfile, ensure_ascii=False, indent=4)
 
 if __name__ == "__main__":
     main()
